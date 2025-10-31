@@ -1,4 +1,4 @@
-function R = YPRToRot(psi,theta,phi)
+function [R] = YPRToRot(psi,theta,phi)
     Rz = [ cos(psi)   -sin(psi)    0;
            sin(psi)    cos(psi)    0;
               0          0         1];

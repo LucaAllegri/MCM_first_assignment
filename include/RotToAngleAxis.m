@@ -1,33 +1,29 @@
 function [h,theta] = RotToAngleAxis(R)
 
+    [n,m] = size(R);
+    
+    isRotation = IsRotationMatrix(R);
 
-    %isRotation = isRotationMatrix(R);
+    if isRotation
 
-    %if isRotation 
+        % TRACE'S COMPUTE
+        trace = 0;
+        for i=1:n
+            trace = trace + R(i,i); 
+        end
+        disp("Trace:");
+        disp(trace);
+
+        % THETA's COMPUTE
+        theta = 1/cos(trace-1/2);
+        
+        % h-VECTOR'S COMPUTE
         for i=1:length(R)
             for j=1:length(R)
                 RT(j,i) = R(i,j);
             end
         end
-    
-        % TRACE'S COMPUTE
-        trace = 0;
-        i=1; j=1;
-        for n=1:length(R)
-            trace = trace + R(i, j); 
-            i=i+1;
-            j=j+1;
-        end
-        disp("Trace:");
-        disp(trace);
-        theta = 1/cos(trace-1/2);
-    
-        % if 0<theta<pi
-        % 
-        % end
-    
-        % h-VECTOR'S COMPUTE
-    
+
         diff_R_RT = R - RT;
         axial_vector = vex(diff_R_RT/2);
     
@@ -37,15 +33,20 @@ function [h,theta] = RotToAngleAxis(R)
             h = [1; 0; 0]; % Arbitrary unit vector for null rotation
         elseif pi-10^-3 <= theta <= pi+10^-3;  %AGGIUNGERE LA TOLLERANZA 10-3
             hx = sqrt((R(1,1) + 1)/2);
-        %TO DO HY HZ CON CONVENZIONE DEL SEGNO POSITIVO 
+
+
+            %TO DO HY HZ CON CONVENZIONE DEL SEGNO POSITIVO 
             %h = [hx hy hz];
-            h = [1; 0; 0]; % a caso per restituire qualcosa prima di cambiare
+            h = [1; 0; 0]; % a caso per restituire qualcosa e far funzionare il main
             disp("pi");
         else
             h = (1 / sin(theta)) * axial_vector ;
             disp("tra 0 e pi");
         end
-    %end
+    else
+        theta = -5;
+        h = [0,0,0]
+    end
 
 end
 

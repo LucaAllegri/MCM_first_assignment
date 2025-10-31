@@ -1,5 +1,5 @@
 clc, clearvars, close all
-
+addpath('include');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PUNTO 1.1  Angle-axis to rot
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -38,6 +38,7 @@ disp (R);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PUNTO 1.2 Rot to angle-axis
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 disp("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 
 R = [1 0 0;
@@ -45,6 +46,10 @@ R = [1 0 0;
      0 1 0];
 
 [h,theta] = RotToAngleAxis(R);
+
+if theta == -5
+    disp("Input Matrix is not Rotable")
+end
 
 disp("display theta:")
 disp(theta);
@@ -59,6 +64,10 @@ R = [1/2        -sqrt(3)/2    0;
      0                0       1];
 
 [h,theta] = RotToAngleAxis(R);
+
+if theta == -5
+    disp("Input Matrix is not Rotable")
+end
 
 disp("display theta:")
 disp(theta);
@@ -75,6 +84,10 @@ R = [1 0 0;
 
 [h,theta] = RotToAngleAxis(R);
 
+if theta == -5
+    disp("Input Matrix is not Rotable")
+end
+
 disp("display theta:")
 disp(theta);
 
@@ -90,6 +103,10 @@ R = [-1 0  0;
 
 [h,theta] = RotToAngleAxis(R);
 
+if theta == -5
+    disp("Input Matrix is not Rotable")
+end
+
 disp("display theta:")
 disp(theta);
 
@@ -104,6 +121,10 @@ R = [-1 0  0;
 
 [h,theta] = RotToAngleAxis(R);
 
+if theta == -5
+    disp("Input Matrix is not Rotable")
+end
+
 disp("display theta:")
 disp(theta);
 
@@ -112,8 +133,9 @@ disp(h);
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PUNTO 1.3
+% PUNTO 1.3    Euler to rot
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 disp("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 
 R = YPRToRot(0,0,pi/2);
@@ -140,15 +162,16 @@ disp(R);
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PUNTO 1.4
+% PUNTO 1.4    Rot to Euler
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 disp("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 
 R = [1 0 0;
      0 0 -1;
      0 1 0];
 
-[psi, theta, phi] = rotToYPR(R);
+[psi, theta, phi] = RotToYPR(R);
 
 disp("display psi:")
 disp(psi);
@@ -163,7 +186,7 @@ R = [1/2        -sqrt(3)/2    0;
      sqrt(3)/2       1/2      0;
      0                0       1];
 
-[psi, theta, phi] = rotToYPR(R);
+[psi, theta, phi] = RotToYPR(R);
 
 disp("display psi:")
 disp(psi);
@@ -178,7 +201,7 @@ R = [    0             -sqrt(2)/2            sqrt(2)/2;
         1/2        sqrt(2)*sqrt(3)/4     sqrt(2)*sqrt(3)/4;
      -sqrt(3)/2         sqrt(2)/4            sqrt(2)/4];
 
-[psi, theta, phi] = rotToYPR(R);
+[psi, theta, phi] = RotToYPR(R);
 
 disp("display psi:")
 disp(psi);
@@ -189,3 +212,9 @@ disp(phi);
 
 
 disp("----------------------------------------");
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PUNTO 1.5    Rot to angle-axis with eigenvectors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

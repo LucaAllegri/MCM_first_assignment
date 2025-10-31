@@ -1,7 +1,0 @@
-function R = AngleAxisToRot(h,theta)
-    I = [1,0,0 ; 0,1,0 ; 0,0,1];
-
-    R = I + sin(theta).*[h] + (1-cos)
-
-    
-end

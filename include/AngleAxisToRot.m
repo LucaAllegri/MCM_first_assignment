@@ -1,4 +1,4 @@
-function R = AngleAxisToRot(h,theta)
+function [R] = AngleAxisToRot(h,theta)
 
     I = [1 0 0;
          0 1 0;
@@ -9,5 +9,5 @@ function R = AngleAxisToRot(h,theta)
           -h(2)  h(1)    0];
 
     R = I + sin(theta)*H + (1-cos(theta))*H^2;
-    
+   
 end
