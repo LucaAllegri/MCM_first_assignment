@@ -1,0 +1,171 @@
+clc, clearvars, close all
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PUNTO 1.1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+theta = deg2rad(90);
+
+h = [1,0,0];
+
+R = AngleAxisToRot(h,theta);
+disp (R);
+
+disp("----------------------------------------");
+
+theta = deg2rad(60);
+
+h = [0,0,1];
+
+R = AngleAxisToRot(h,theta);
+disp (R);
+
+disp("----------------------------------------");
+
+theta = deg2rad(60);
+
+h = [-1,-1/2,1];
+
+R = AngleAxisToRot(h,theta);
+disp (R);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PUNTO 1.2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+disp("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+
+R = [1 0 0;
+     0 0 -1;
+     0 1 0];
+
+[h,theta] = RotToAngleAxis(R);
+
+disp("display theta:")
+disp(theta);
+
+disp("display h:")
+disp(h)
+
+disp("----------------------------------------");
+
+R = [1/2        -sqrt(3)/2    0;
+     sqrt(3)/2       1/2      0;
+     0                0       1];
+
+[h,theta] = RotToAngleAxis(R);
+
+disp("display theta:")
+disp(theta);
+
+disp("display h:")
+disp(h)
+
+
+disp("----------------------------------------");
+
+R = [1 0 0;
+     0 1 0;
+     0 0 1];
+
+[h,theta] = RotToAngleAxis(R);
+
+disp("display theta:")
+disp(theta);
+
+disp("display h:")
+disp(h)
+
+
+disp("----------------------------------------");
+
+R = [-1 0  0;
+     0  -1 0;
+     0  0  1];
+
+[h,theta] = RotToAngleAxis(R);
+
+disp("display theta:")
+disp(theta);
+
+disp("display h:")
+disp(h);
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PUNTO 1.3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+disp("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+
+R = YPRToRot(0,0,pi/2);
+disp("display R:")
+disp(R);
+
+disp("----------------------------------------");
+
+R = YPRToRot(0,0,deg2rad(60));
+disp("display R:")
+disp(R);
+
+disp("----------------------------------------");
+
+R = YPRToRot(pi/3,pi/2,pi/4);
+disp("display R:")
+disp(R);
+
+disp("----------------------------------------");
+
+R = YPRToRot(0,pi/2,-pi/12);
+disp("display R:")
+disp(R);
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PUNTO 1.4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+disp("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+
+R = [1 0 0;
+     0 0 -1;
+     0 1 0];
+
+[psi, theta, phi] = rotToYPR(R);
+
+disp("display psi:")
+disp(psi);
+disp("display theta:")
+disp(theta);
+disp("display phi:")
+disp(phi);
+
+disp("----------------------------------------");
+
+R = [1/2        -sqrt(3)/2    0;
+     sqrt(3)/2       1/2      0;
+     0                0       1];
+
+[psi, theta, phi] = rotToYPR(R);
+
+disp("display psi:")
+disp(psi);
+disp("display theta:")
+disp(theta);
+disp("display phi:")
+disp(phi);
+
+disp("----------------------------------------");
+
+R = [    0             -sqrt(2)/2            sqrt(2)/2;
+        1/2        sqrt(2)*sqrt(3)/4     sqrt(2)*sqrt(3)/4;
+     -sqrt(3)/2         sqrt(2)/4            sqrt(2)/4];
+
+[psi, theta, phi] = rotToYPR(R);
+
+disp("display psi:")
+disp(psi);
+disp("display theta:")
+disp(theta);
+disp("display phi:")
+disp(phi);
+
+
+disp("----------------------------------------");
