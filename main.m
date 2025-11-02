@@ -218,3 +218,38 @@ disp("----------------------------------------");
 % PUNTO 1.5    Rot to angle-axis with eigenvectors
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+disp("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+
+R = [1 0 0;
+     0 0 -1;
+     0 1 0];
+
+[h,theta] = RotToAngleAxis(R);
+
+disp("Primo metodo");
+disp("h");
+disp(h);
+disp("theta");
+disp(theta);
+
+disp("Secondo metodo");
+
+%TO DO
+
+disp("----------------------------------------");
+
+R = (1/9) * [-4 -4 -7;
+              8  1  4;
+             -1 -8  4];
+
+[h,theta] = RotToAngleAxis(R);
+
+disp("Primo metodo");
+disp("h");
+disp(h);
+disp("theta");
+disp(theta);
+
+disp("Secondo metodo");
+
+%TO DO

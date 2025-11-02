@@ -34,8 +34,8 @@ function [h,theta] = RotToAngleAxis(R)
         elseif pi-10^-3 <= theta <= pi+10^-3;  %AGGIUNGERE LA TOLLERANZA 10-3
             hx = sqrt((R(1,1) + 1)/2);
 
-
             %TO DO HY HZ CON CONVENZIONE DEL SEGNO POSITIVO 
+            
             %h = [hx hy hz];
             h = [1; 0; 0]; % a caso per restituire qualcosa e far funzionare il main
             disp("pi");
