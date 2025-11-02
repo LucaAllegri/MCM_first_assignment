@@ -235,17 +235,7 @@ disp(theta);
 disp("Secondo metodo");
 %Eigen vector with eigen value =1 -> R*h=1*h
 %to compute h -> (R-1*I)*h=0;
-[eigVec, eigVal] = eig(R);
-D = diag(eigVal);
-ind = -1;
-for i = 1:length(D)
-    if(D(i)==1)
-        ind = i;
-    end
-end
-
-h = eigVec(:,ind) %prendo la colonna corrispondente all'indice del autovalore uguale a 1 
-
+e
 
 disp("----------------------------------------");
 

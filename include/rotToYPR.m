@@ -26,9 +26,9 @@ function [psi,theta,phi] = RotToYPR(R)
         psi = atan2 (R(2,1), R(1,1)); 
         phi = atan2 (R(3,2), R(3,3));
     else
-        theta = -5;
-        phi = -5;
-        psi = -5;
+        theta = -1;
+        phi = -1;
+        psi = -1;
     end
 
 end
