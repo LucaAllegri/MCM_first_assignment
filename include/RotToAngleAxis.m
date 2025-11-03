@@ -32,6 +32,7 @@ function [h,theta] = RotToAngleAxis(R)
             hy = sign(hx) * sign(R(1,2))*sqrt((R(2,1)+1)/2);
             hz = sign(hx) * sign(R(1,3)) * sqrt((R(3,1)+1)/2);
             h = [hx hy hz];
+            h = real(h/norm(h));
            
             
   
@@ -40,6 +41,7 @@ function [h,theta] = RotToAngleAxis(R)
             diff_R_RT = R - RT;
             axial_vector = vex(diff_R_RT/2);
             h = (1 / sin(theta)) * axial_vector ;
+            h = real(h/norm(h));
             
             
         end

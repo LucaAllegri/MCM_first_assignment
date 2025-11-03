@@ -220,10 +220,12 @@ disp("----------------------------------------");
 
 disp("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 
-R = [1 0 0;
-     0 0 -1;
-     0 1 0];
-
+% R = [1 0 0;
+%      0 0 -1;
+%      0 1 0];
+R = [    0             -sqrt(2)/2            sqrt(2)/2;
+        1/2        sqrt(2)*sqrt(3)/4     sqrt(2)*sqrt(3)/4;
+     -sqrt(3)/2         sqrt(2)/4            sqrt(2)/4];
 
 
 [h,theta] = RotToAngleAxis(R);
@@ -247,7 +249,7 @@ for i = 1:length(D)
 end
 disp("H: ");
 h = eigVec(:,ind);%prendo la colonna corrispondente all'indice del autovalore uguale a 1 
-
+h = real(h/norm(h))
 
 disp("----------------------------------------");
 
