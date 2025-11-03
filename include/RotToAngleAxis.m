@@ -20,18 +20,19 @@ function [h,theta] = RotToAngleAxis(R)
                 RT(j,i) = R(i,j);
             end
         end
-        if -10^-3 <= theta || theta <= 10^-3
+        if -10^-3 <= theta && theta <= 10^-3
             %null rotation so h is arbitrary
             disp("0");
             h = [1; 0; 0];
 
-        elseif pi-10^-3 <= theta || theta <= pi+10^-3
+        elseif pi-10^-3 <= theta && theta <= pi+10^-3
             
             disp("pi");
             hx = sqrt((R(1,1) + 1)/2); %picking the first component
             hy = sign(hx) * sign(R(1,2))*sqrt((R(2,1)+1)/2);
             hz = sign(hx) * sign(R(1,3)) * sqrt((R(3,1)+1)/2);
             h = [hx hy hz];
+           
             
   
         else
@@ -39,6 +40,7 @@ function [h,theta] = RotToAngleAxis(R)
             diff_R_RT = R - RT;
             axial_vector = vex(diff_R_RT/2);
             h = (1 / sin(theta)) * axial_vector ;
+            
             
         end
     else
