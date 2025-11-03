@@ -13,13 +13,15 @@ function [h,theta] = RotToAngleAxis(R)
         disp(trace);
 
         % THETA's COMPUTE
-        theta = 1/cos(trace-1/2);
+        theta = 1/cos((trace-1)/2);
         % h-VECTOR'S COMPUTE
-        for i=1:length(R)
-            for j=1:length(R)
+
+        for i=1:n
+            for j=1:m
                 RT(j,i) = R(i,j);
             end
         end
+
         if -10^-3 <= theta && theta <= 10^-3
             %null rotation so h is arbitrary
             disp("0");
@@ -34,8 +36,6 @@ function [h,theta] = RotToAngleAxis(R)
             h = [hx hy hz];
             h = real(h/norm(h));
            
-            
-  
         else
             disp("tra 0 e pi");
             diff_R_RT = R - RT;
@@ -47,8 +47,8 @@ function [h,theta] = RotToAngleAxis(R)
         end
     else
         %non rotation matrix
-        theta = -1;
-        h = [0,0,0]
+        theta = -5;
+        h = [0,0,0];
     end
 
 end

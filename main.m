@@ -224,7 +224,34 @@ R = [1 0 0;
      0 0 -1;
      0 1 0];
 
+[h,theta] = RotToAngleAxis(R);
 
+disp("Primo metodo");
+disp("h");
+disp(h);
+disp("theta");
+disp(theta);
+
+disp("Secondo metodo");
+%Eigen vector with eigen value =1 -> R*h=1*h
+%to compute h -> (R-1*I)*h=0;
+[eigVec, eigVal] = eig(R);
+D = diag(eigVal);
+ind = -1;
+for i = 1:length(D)
+    if(abs(D(i) - 1) < 10^-3)
+        ind = i;
+    end
+end
+disp("H: ");
+h = eigVec(:,ind)%prendo la colonna corrispondente all'indice del autovalore uguale a 1 
+
+
+disp("----------------------------------------");
+
+R = (1/9) * [-4 -4 -7;
+              8  1  4;
+             -1 -8  4];
 
 [h,theta] = RotToAngleAxis(R);
 
@@ -246,23 +273,4 @@ for i = 1:length(D)
     end
 end
 disp("H: ");
-h = eigVec(:,ind);%prendo la colonna corrispondente all'indice del autovalore uguale a 1 
-
-
-disp("----------------------------------------");
-
-R = (1/9) * [-4 -4 -7;
-              8  1  4;
-             -1 -8  4];
-
-[h,theta] = RotToAngleAxis(R);
-
-disp("Primo metodo");
-disp("h");
-disp(h);
-disp("theta");
-disp(theta);
-
-disp("Secondo metodo");
-
-%TO DO
+h = eigVec(:,ind)%prendo la colonna corrispondente all'indice del autovalore uguale a 1 
