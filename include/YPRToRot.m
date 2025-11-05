@@ -3,9 +3,9 @@ function [R] = YPRToRot(psi,theta,phi)
            sin(psi)    cos(psi)    0;
               0          0         1];
 
-    Ry = [ cos(theta)      0      sin(theta);
-              0          1         0;
-           sin(theta)      0      cos(theta)];
+    Ry = [  cos(theta)      0      sin(theta);
+                0           1           0;
+           -sin(theta)      0      cos(theta)];
 
     Rx = [    1          0         0;
               0       cos(phi)  -sin(phi);

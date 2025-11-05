@@ -174,7 +174,7 @@ disp("----------------------------------------");
 disp("1.3.2")
 disp("----------------------------------------");
 
-R = YPRToRot(0,0,deg2rad(60));
+R = YPRToRot(deg2rad(60),0,0);
 disp("display R:")
 disp(R);
 
@@ -244,8 +244,8 @@ disp("1.4.3")
 disp("----------------------------------------");
 
 
-R = [    0             -sqrt(2)/2            sqrt(2)/2;
-        1/2        sqrt(2)*sqrt(3)/4     sqrt(2)*sqrt(3)/4;
+R = [    0             -sqrt(2)/2             sqrt(2)/2;
+        1/2        (sqrt(2)*sqrt(3))/4     (sqrt(2)*sqrt(3))/4;
      -sqrt(3)/2         sqrt(2)/4            sqrt(2)/4];
 
 [psi, theta, phi] = RotToYPR(R);
