@@ -183,6 +183,7 @@ disp("1.3.3")
 disp("----------------------------------------");
 
 R = YPRToRot(pi/3,pi/2,pi/4);
+disp("Gimbal Lock");
 disp("display R:")
 disp(R);
 
@@ -191,6 +192,7 @@ disp("1.3.4")
 disp("----------------------------------------");
 
 R = YPRToRot(0,pi/2,-pi/12);
+disp("Gimbal Lock");
 disp("display R:")
 disp(R);
 

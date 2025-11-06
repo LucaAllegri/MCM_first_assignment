@@ -10,7 +10,9 @@ function [isRotationMatrix] = IsRotationMatrix(R)
 
     Identity = [1 0 0;
                 0 1 0;
-                0 0 1];    
+                0 0 1];
+    if I == Identity
+    
     for i=1:n
         for j=1:m
             if i==j
@@ -20,7 +22,7 @@ function [isRotationMatrix] = IsRotationMatrix(R)
                     return;
                 end
             else
-                if (I(i,j) < -(10^-3)) || (I(i,j) > (10^-3)) 
+                if (I(i,j) < (10^-3)) || (I(i,j) > (10^-3)) 
                     isRotationMatrix = false;
                     disp("non è identità");
                     return;
