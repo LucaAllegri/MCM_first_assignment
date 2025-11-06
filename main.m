@@ -271,9 +271,17 @@ disp("----------------------------------------");
 disp("1.5.1")
 disp("----------------------------------------");
 
+% R = [1 0 0;
+%      0 0 -1;
+%      0 1 0];
 R = [1 0 0;
-     0 0 -1;
-     0 1 0];
+     0 0 1;
+     0 -1 0];
+%Notare che anche se la rotazione reale è “−90°”, l’angolo restituito è positivo.
+%Il verso del moto sarà codificato nel segno dell’asse h, non dell’angolo.
+%La funzione ritorna un angolo positivo (90°) ma asse con verso negativo (-x).
+%Questo è perfettamente coerente, perché ruotare di +90° attorno a -x è identico a ruotare di −90° attorno a +x.
+
 is_rot = IsRotationMatrix(R);
 
 if is_rot
@@ -285,7 +293,7 @@ if is_rot
     disp(rad2deg(theta));
     
     disp("Secondo metodo");
-    h = eigein_H(R);
+    h = eigen_H(R);
     disp("h: ");
     disp(h);
     [~,theta] = RotToAngleAxis(R);
@@ -317,7 +325,7 @@ if is_rot
     disp(theta);
     
     disp("Secondo metodo");
-    h = eigein_H(R);
+    h = eigen_H(R);
     disp("h: ");
     disp(h);
     [~,theta] = RotToAngleAxis(R);
@@ -329,15 +337,3 @@ else
     disp("NOT A ROTATION MATRIX")
 end
 
-
-function [h] = eigein_H(R)
-    [eigVec, eigVal] = eig(R);
-    D = diag(eigVal);
-    ind = -1;
-    for i = 1:length(D)
-        if(abs(D(i) - 1) < 10^-3)
-            ind = i;
-        end
-    end
-    h = eigVec(:,ind);  
-end

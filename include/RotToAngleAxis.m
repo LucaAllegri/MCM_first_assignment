@@ -9,8 +9,8 @@ function [h,theta] = RotToAngleAxis(R)
         for i=1:n
             trace = trace + R(i,i); 
         end
-        disp("Trace:");
-        disp(trace);
+        % disp("Trace:");
+        % disp(trace);
 
         % THETA's COMPUTE
         theta = acos((trace-1)/2);
