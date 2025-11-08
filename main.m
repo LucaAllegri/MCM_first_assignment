@@ -1,5 +1,10 @@
 clc, clearvars, close all
 addpath('include');
+
+
+
+%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PUNTO 1.1  Angle-axis to rot
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -16,6 +21,8 @@ h = [1,0,0];
 
 R = AngleAxisToRot(h,theta);
 disp (R);
+plotframe(R);
+
 
 disp("----------------------------------------");
 disp("1.1.2")
@@ -339,3 +346,5 @@ else
     disp("NOT A ROTATION MATRIX")
 end
 
+
+%%
