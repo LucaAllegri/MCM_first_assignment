@@ -279,12 +279,14 @@ disp("----------------------------------------");
 disp("1.5.1")
 disp("----------------------------------------");
 
-% R = [1 0 0;
-%      0 0 -1;
-%      0 1 0];
 R = [1 0 0;
-     0 0 1;
-     0 -1 0];
+     0 0 -1;
+     0 1 0];
+
+
+% R = [1 0 0;
+%      0 0 1;
+%      0 -1 0];
 %Notare che anche se la rotazione reale è “−90°”, l’angolo restituito è positivo.
 %Il verso del moto sarà codificato nel segno dell’asse h, non dell’angolo.
 %La funzione ritorna un angolo positivo (90°) ma asse con verso negativo (-x).
@@ -431,7 +433,6 @@ figure
 axes('DataAspectRatio', [1 1 1], 'View', [37.5 30])
 hold on, grid on
 
-%  World Frame
 plotframe('LabelBasis', true, ...
           'Labels', {'X_{world}','Y_{world}','Z_{world}'}, ...
           'TextProperties', {'FontAngle','italic'})
