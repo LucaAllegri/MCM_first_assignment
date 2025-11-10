@@ -17,12 +17,12 @@ function [h] = eigen_H(R)
     %di rotazione positiva usata in RotToAngleAxis dobbiamo tenere conto
     %delle direzione nel vettore h
     
-    %calcolo l'h con RotToAngleAxis supponendo una rotazione positiva
-    [h_rod, ~] = RotToAngleAxis(R);
-    
-    %confronto per capire l'orientamento corretto di h
-    if dot(h, h_rod) < 0
-        h = -h;
-    end
+    % %calcolo l'h con RotToAngleAxis supponendo una rotazione positiva
+    % [h_rod, ~] = RotToAngleAxis(R);
+    % 
+    % %confronto per capire l'orientamento corretto di h
+    % if dot(h, h_rod) < 0
+    %     h = -h;
+    % end
     
 end

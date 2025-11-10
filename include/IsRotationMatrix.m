@@ -24,8 +24,8 @@ function [isRotationMatrix] = IsRotationMatrix(R)
     
     % Calcolo del determinante, deve essere uguale a 1
     det_R = det(R);
-    disp("determinante= ");
-    disp(det_R);
+    % disp("determinante= ");
+    % disp(det_R);
 
     if (det_R < 1 - (10^-3)) || (det_R > 1 + (10^-3))
         isRotationMatrix = false;
