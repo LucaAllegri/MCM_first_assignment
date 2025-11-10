@@ -16,11 +16,7 @@ function [h,theta] = RotToAngleAxis(R)
         theta = acos((trace-1)/2);
         % h-VECTOR'S COMPUTE
 
-        for i=1:n
-            for j=1:m
-                RT(j,i) = R(i,j);
-            end
-        end
+        RT = R';
 
         if -10^-3 <= theta && theta <= 10^-3
             %null rotation so h is arbitrary

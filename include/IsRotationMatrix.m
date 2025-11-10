@@ -1,16 +1,9 @@
 function [isRotationMatrix] = IsRotationMatrix(R)
     [n,m] = size(R);
-    for i=1:n
-        for j=1:m
-            RT(j,i) = R(i,j);
-        end
-    end
+    RT = R';
 
     I = RT*R;
-
-    Identity = [1 0 0;
-                0 1 0;
-                0 0 1];    
+    
     for i=1:n
         for j=1:m
             if i==j

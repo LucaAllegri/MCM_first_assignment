@@ -43,14 +43,13 @@ rho = [-pi/3, -pi/6, pi/3];
 
 theta = sqrt(rho(1,1)^2 + rho(1,2)^2 + rho(1,3)^2);
 
-h = rho / theta;   % RHO P= PI/3 PI/6 PI/3
+h = rho / theta;  
 
 R = AngleAxisToRot(h,theta);
 disp(theta);
 disp(h);
 disp (R);
-
-%%NORMA DI RHO è THETA   
+  
 
 %%
 
