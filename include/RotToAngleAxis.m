@@ -4,17 +4,13 @@ function [h,theta] = RotToAngleAxis(R)
     isRotation = IsRotationMatrix(R);
 
     if isRotation
-        % TRACE'S COMPUTE
+
         trace = 0;
         for i=1:n
             trace = trace + R(i,i); 
         end
-        % disp("Trace:");
-        % disp(trace);
 
-        % THETA's COMPUTE
         theta = acos((trace-1)/2);
-        % h-VECTOR'S COMPUTE
 
         RT = R';
 
